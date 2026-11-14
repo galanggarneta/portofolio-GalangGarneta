@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GANTI JUDUL TAB BROWSER DI BAWAH INI -->
+    <title>Galang | Portofolio IT & Web Developer</title>
+    
+    <!-- Font Modern dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Menghubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- =====================================================================
+         LATAR BELAKANG ANIMASI BINTANG & BULAN (OTOMATIS DIISI OLEH SCRIPT.JS)
+         ===================================================================== -->
+    <div id="sky-canvas" aria-hidden="true"></div>
+
+    <!-- =====================================================================
+         NAVIGASI ATAS (STICKY & INTERAKTIF)
+         ===================================================================== -->
+    <nav class="navbar">
+        <a href="#home" class="brand-logo">GALANG GARNETA<span>.</span></a>
+        
+        <div class="nav-links">
+            <a href="#home" class="lang-text" data-id="Beranda" data-en="Home">Beranda</a>
+            <a href="#about" class="lang-text" data-id="Tentang" data-en="About">Tentang</a>
+            <a href="#work" class="lang-text" data-id="Pekerjaan" data-en="Work">Pekerjaan</a>
+            <a href="#skills" class="lang-text" data-id="Keahlian" data-en="Skills">Keahlian</a>
+            <a href="#certificates" class="lang-text" data-id="Sertifikat" data-en="Certificates">Sertifikat</a>
+            <a href="#contact" class="lang-text" data-id="Kontak" data-en="Contact">Kontak</a>
+        </div>
+
+        <button class="lang-btn" onclick="toggleLanguage()" title="Ganti Bahasa / Switch Language">
+            🌐 <span id="lang-label">ID / EN</span>
+        </button>
+    </nav>
+
+    <!-- =====================================================================
+         1. BAGIAN ATAS / HERO (KIRI: PERKENALAN + KOTAK SCROLL, KANAN: FOTO)
+         ===================================================================== -->
+    <section id="home" class="hero-section pop-anim">
+        <div class="hero-container">
+            
+            <!-- SISI KIRI: Perkenalkan saya Galang + Kotak Minat Berganti Seperti Di-Scroll -->
+            <div class="hero-left">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="lang-text" data-id="Siap Berkolaborasi & Berkarya" data-en="Open to Collaborate & Build">Siap Berkolaborasi & Berkarya</span>
+                </div>
+
+                <h1 class="hero-title">
+                    <span class="lang-text" data-id="Perkenalkan saya" data-en="Hi, I am">Perkenalkan saya</span>
+                    <span class="highlight-name">Galang</span>
+                </h1>
+
+                <div class="interest-wrapper">
+                    <span class="interest-label lang-text" data-id="dengan minat di bidang" data-en="with interests in">dengan minat di bidang</span>
+                    
+                    <!-- KOTAK ANIMASI SCROLL VERTIKAL (Cisco, Network, Web, Hardware, Software) -->
+                    <div class="scroll-interest-box" title="Minat Keahlian">
+                        <div class="scroll-interest-track" id="interest-track">
+                            <div class="interest-item" data-id="Cisco" data-en="Cisco Networking">Cisco</div>
+                            <div class="interest-item" data-id="Network" data-en="Network Infrastructure">Network</div>
+                            <div class="interest-item" data-id="Web Development" data-en="Web Development">Web Development</div>
+                            <div class="interest-item" data-id="Hardware" data-en="Computer Hardware">Hardware</div>
+                            <div class="interest-item" data-id="Software" data-en="Software Solutions">Software</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =============================================================
+                     [AREA EDIT DESKRIPSI SINGKAT HERO]
+                     Silakan ganti kalimat di bawah ini sesuai gaya bahasa Anda sendiri.
+                     Isi data-id untuk Bahasa Indonesia & data-en untuk Bahasa Inggris.
+                     ============================================================= -->
+                <p class="hero-subtitle lang-text" 
+                   data-id="Talenta muda yang antusias berinovasi di bidang pengembangan web dan jaringan. Mari berkolaborasi menciptakan karya digital yang membawa dampak positif bagi masa depan!." 
+                   data-en="A young talent passionate about innovating in web development and networking. Let's collaborate to build digital works that make a positive impact on the future!.">
+                    Talenta muda yang antusias berinovasi di bidang pengembangan web dan jaringan. Mari berkolaborasi menciptakan karya digital yang membawa dampak positif bagi masa depan!
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#work" class="btn-primary lang-text" data-id="Lihat Karya Saya" data-en="Explore My Work">Lihat Karya Saya</a>
+                    <a href="#contact" class="btn-secondary lang-text" data-id="Hubungi Saya" data-en="Get in Touch">Hubungi Saya</a>
+                </div>
+            </div>
+
+            <!-- SISI KANAN: Foto Profil Anda (Bisa diklik untuk melihat ukuran penuh) -->
+            <div class="hero-right">
+                <div class="photo-frame">
+                    <div class="photo-glow"></div>
+                    <!-- =========================================================
+                         [GANTI FOTO PROFIL ANDA DI SINI]
+                         Ubah nilai src="..." dengan nama file foto Anda (misal: "foto-galang.jpg")
+                         ========================================================= -->
+                    <img src="ppgalang.jpeg" 
+                         alt="Foto Profil Galang" 
+                         class="profile-pic"
+                         data-caption="Galang — IT & Web Enthusiast"
+                         onclick="openModal(this)">
+                    <span class="photo-hint lang-text" data-id="Klik foto untuk memperbesar" data-en="Click photo to enlarge">Klik foto untuk memperbesar</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- KOTAK BERITA BERJALAN 1 (LAYAKNYA RUNNING TEXT TV) -->
+        <div class="news-ticker ticker-blue">
+            <div class="ticker-badge">LIVE INFO</div>
+            <div class="ticker-window">
+                <div class="ticker-track">
+                    <!-- Teks berjalan diulang 2x agar sambungannya mulus tanpa putus -->
+                    <span class="lang-text" 
+                          data-id="✦ SELAMAT DATANG DI PORTOFOLIO GALANG ✦ CISCO & NETWORKING ✦ VLAN TOPOLOGY ✦ JUNIOR WEB DEVELOPMENT ✦ HARDWARE & SOFTWARE TROUBLESHOOTING ✦ SIAP BERKOLABORASI ✦" 
+                          data-en="✦ WELCOME TO GALANG'S PORTFOLIO ✦ CISCO & NETWORKING ✦ VLAN TOPOLOGY ✦ JUNIOR WEB DEVELOPMENT ✦ HARDWARE & SOFTWARE TROUBLESHOOTING ✦ READY TO COLLABORATE ✦">
+                        ✦ SELAMAT DATANG DI PORTOFOLIO GALANG ✦ CISCO & NETWORKING ✦ VLAN TOPOLOGY ✦ JUNIOR WEB DEVELOPMENT ✦ HARDWARE & SOFTWARE TROUBLESHOOTING ✦ SIAP BERKOLABORASI ✦
+                    </span>
+                    <span class="lang-text" 
+                          data-id="✦ SELAMAT DATANG DI PORTOFOLIO GALANG ✦ CISCO & NETWORKING ✦ VLAN TOPOLOGY ✦ JUNIOR WEB DEVELOPMENT ✦ HARDWARE & SOFTWARE TROUBLESHOOTING ✦ SIAP BERKOLABORASI ✦" 
+                          data-en="✦ WELCOME TO GALANG'S PORTFOLIO ✦ CISCO & NETWORKING ✦ VLAN TOPOLOGY ✦ JUNIOR WEB DEVELOPMENT ✦ HARDWARE & SOFTWARE TROUBLESHOOTING ✦ READY TO COLLABORATE ✦">
+                        ✦ SELAMAT DATANG DI PORTOFOLIO GALANG ✦ CISCO & NETWORKING ✦ VLAN TOPOLOGY ✦ JUNIOR WEB DEVELOPMENT ✦ HARDWARE & SOFTWARE TROUBLESHOOTING ✦ SIAP BERKOLABORASI ✦
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =====================================================================
+         2. BAGIAN ABOUT (TENTANG SAYA)
+         ===================================================================== -->
+    <section id="about" class="pop-anim">
+        <div class="section-header">
+            <span class="section-tag">PROFILE</span>
+            <h2 class="lang-text" data-id="Tentang Saya" data-en="About Me">Tentang Saya</h2>
+        </div>
+
+        <div class="about-card">
+            <!-- =================================================================
+                 [AREA EDIT DESKRIPSI LENGKAP TENTANG DIRI ANDA]
+                 Silakan tulis cerita, latar belakang pendidikan, ketertarikan pada Cisco,
+                 jaringan, pemrograman web, maupun pengalaman organisasi Anda di bawah ini.
+                 Pastikan mengisi baik teks di dalam tag <p> maupun atribut data-id & data-en.
+                 ================================================================= -->
+            <p class="about-text lang-text" 
+               data-id="Halo! Saya Galang, Siswa kelas 11 SMKN 1 Blitar jurusan Teknik Jaringan Komputer dan Telekomunikasi(TJKT), talenta muda di bidang teknologi informasi yang berfokus pada pengembangan website interaktif serta infrastruktur jaringan komputer (Cisco & MikroTik). Mulai dari merancang topologi VLAN hingga perakitan dan perawatan hardware/software, saya senang memecahkan tantangan teknis demi menciptakan solusi digital yang andal. Sebagai bagian dari generasi muda, saya terus belajar dan berinovasi untuk berkontribusi membangun masa depan teknologi yang lebih cerah." 
+               data-en="Hello! I'm Galang, An 11th-grade student at SMKN 1 Blitar, majoring in Computer Network and Telecommunication Engineering(TJKT). A young IT talent focused on interactive web development and computer networking infrastructure (Cisco & MikroTik). From designing VLAN topologies to hardware/software assembly and maintenance, I enjoy solving technical challenges to build reliable digital solutions. As part of the younger generation, I continuously learn and innovate to contribute toward a brighter technological future.">
+                Halo! Saya Galang, Siswa kelas 11 SMKN 1 Blitar jurusan Teknik Jaringan Komputer dan Telekomunikasi [TJKT], talenta muda di bidang teknologi informasi yang berfokus pada pengembangan website interaktif serta infrastruktur jaringan komputer (Cisco & MikroTik). Mulai dari merancang topologi VLAN hingga perakitan dan perawatan hardware/software, saya senang memecahkan tantangan teknis demi menciptakan solusi digital yang andal. Sebagai bagian dari generasi muda, saya terus belajar dan berinovasi untuk berkontribusi membangun masa depan teknologi yang lebih cerah.
+            </p>
+        </div>
+
+        <!-- KOTAK BERITA BERJALAN 2 (LAYAKNYA RUNNING TEXT TV) -->
+        <div class="news-ticker ticker-burgundy">
+            <div class="ticker-badge">UPDATE</div>
+            <div class="ticker-window">
+                <div class="ticker-track">
+                    <span class="lang-text" 
+                          data-id="★ TERBUKA UNTUK MAGANG, PROYEK FREELANCE, DAN KOLABORASI TIM IT ★ FOKUS PADA JARINGAN KOMPUTER & PENGEMBANGAN WEB ★ KLIK GAMBAR DOKUMENTASI UNTUK MELIHAT TAMPILAN PENUH ★" 
+                          data-en="★ OPEN FOR INTERNSHIPS, FREELANCE PROJECTS, AND IT TEAM COLLABORATIONS ★ FOCUSED ON COMPUTER NETWORKS & WEB DEVELOPMENT ★ CLICK ANY DOCUMENTATION IMAGE TO VIEW FULL SCREEN ★">
+                        ★ TERBUKA UNTUK MAGANG, PROYEK FREELANCE, DAN KOLABORASI TIM IT ★ FOKUS PADA JARINGAN KOMPUTER & PENGEMBANGAN WEB ★ KLIK GAMBAR DOKUMENTASI UNTUK MELIHAT TAMPILAN PENUH ★
+                    </span>
+                    <span class="lang-text" 
+                          data-id="★ TERBUKA UNTUK MAGANG, PROYEK FREELANCE, DAN KOLABORASI TIM IT ★ FOKUS PADA JARINGAN KOMPUTER & PENGEMBANGAN WEB ★ KLIK GAMBAR DOKUMENTASI UNTUK MELIHAT TAMPILAN PENUH ★" 
+                          data-en="★ OPEN FOR INTERNSHIPS, FREELANCE PROJECTS, AND IT TEAM COLLABORATIONS ★ FOCUSED ON COMPUTER NETWORKS & WEB DEVELOPMENT ★ CLICK ANY DOCUMENTATION IMAGE TO VIEW FULL SCREEN ★">
+                        ★ TERBUKA UNTUK MAGANG, PROYEK FREELANCE, DAN KOLABORASI TIM IT ★ FOKUS PADA JARINGAN KOMPUTER & PENGEMBANGAN WEB ★ KLIK GAMBAR DOKUMENTASI UNTUK MELIHAT TAMPILAN PENUH ★
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =====================================================================
+         3. BAGIAN WORK (PEKERJAAN & DOKUMENTASI PROYEK)
+         Catatan: Arahkan kursor ke foto untuk zoom in, dan KLIK foto untuk melihat penuh!
+         ===================================================================== -->
+    <section id="work" class="pop-anim">
+        <div class="section-header">
+            <span class="section-tag">PORTFOLIO</span>
+            <h2 class="lang-text" data-id="Pekerjaan & Dokumentasi" data-en="Work & Documentation">Pekerjaan & Dokumentasi</h2>
+            <p class="section-desc lang-text" data-id="Arahkan kursor pada foto untuk memperbesar, atau klik foto untuk melihat ukuran penuh." data-en="Hover over any photo to zoom in, or click the photo to view in full screen.">
+                Arahkan kursor pada foto untuk memperbesar, atau klik foto untuk melihat ukuran penuh.
+            </p>
+        </div>
+
+        <div class="cards-grid">
+            
+            <!-- JENDELA WORK 1: SETTING WIFI -->
+            <article class="project-card">
+                <div class="img-container">
+                    <!-- [GANTI FOTO DOKUMENTASI SETTING WIFI ANDA DI SINI] -->
+                    <img src="database.png" 
+                         alt="Database" 
+                         data-caption="Setting WiFi — Instalasi & Konfigurasi Jaringan Nirkabel"
+                         onclick="openModal(this)">
+                    <span class="zoom-badge">🔍 Full</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Database</span>
+                    <h3>Database Design</h3>
+                    <!-- [SILAKAN EDIT DESKRIPSI PROYEK SETTING WIFI ANDA DI SINI] -->
+                    <p class="lang-text" 
+                       data-id="Merancang dan mengelola sistem basis data yang efisien, aman, dan terstruktur untuk mendukung kinerja aplikasi yang optimal." 
+                       data-en="Designing and managing efficient, secure, and structured database systems to support optimal application performance.">
+                        Merancang dan mengelola sistem basis data yang efisien, aman, dan terstruktur untuk mendukung kinerja aplikasi yang optimal.
+                    </p>
+                </div>
+            </article>
+
+            <!-- JENDELA WORK 2: MEMBUAT TOPOLOGI VLAN -->
+            <article class="project-card">
+                <div class="img-container">
+                    <!-- [GANTI FOTO TOPOLOGI VLAN / CISCO PACKET TRACER ANDA DI SINI] -->
+                    <img src="vlantopog.png" 
+                         alt="Topologi VLAN" 
+                         data-caption="Topologi VLAN — Perancangan Segmentasi Jaringan Cisco"
+                         onclick="openModal(this)">
+                    <span class="zoom-badge">🔍 Full</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Cisco & VLAN</span>
+                    <h3 class="lang-text" data-id="Membuat Topologi VLAN" data-en="VLAN Topology Design">Membuat Topologi VLAN</h3>
+                    <!-- [SILAKAN EDIT DESKRIPSI PROYEK TOPOLOGI VLAN ANDA DI SINI] -->
+                    <p class="lang-text" 
+                       data-id="Perancangan infrastruktur jaringan menggunakan switch & router Cisco, pemisahan segmen VLAN, trunking, dan inter-VLAN routing." 
+                       data-en="Network infrastructure design using Cisco switches & routers, VLAN segmentation, trunking, and inter-VLAN routing.">
+                        Perancangan infrastruktur jaringan menggunakan switch & router Cisco, pemisahan segmen VLAN, trunking, dan inter-VLAN routing.
+                    </p>
+                </div>
+            </article>
+
+            <!-- JENDELA WORK 3: WEB DEVELOPMENT PEMULA + LINK GITHUB KASIR -->
+            <article class="project-card">
+                <div class="img-container">
+                    <!-- [GANTI FOTO SCREENSHOT WEB / APLIKASI KASIR ANDA DI SINI] -->
+                    <img src="kasir.png" 
+                         alt="Web Development Pemula" 
+                         data-caption="Junior Web Development — Proyek Aplikasi Kasir"
+                         onclick="openModal(this)">
+                    <span class="zoom-badge">🔍 Full</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Web Development</span>
+                    <h3 class="lang-text" data-id="Web Development Pemula" data-en="Junior Web Development">Web Development Pemula</h3>
+                    <!-- [SILAKAN EDIT DESKRIPSI PROYEK WEB DEVELOPMENT / KASIR ANDA DI SINI] -->
+                    <p class="lang-text" 
+                       data-id="Membangun website responsif dan aplikasi kasir berbasis web untuk pencatatan transaksi serta pengelolaan data barang." 
+                       data-en="Building responsive websites and a web-based cashier (POS) application for transaction recording and inventory management.">
+                        Membangun website responsif dan aplikasi kasir berbasis web untuk pencatatan transaksi serta pengelolaan data barang.
+                    </p>
+
+                    <!-- =========================================================
+                         [GANTI LINK REPOSITORY GITHUB KASIR ANDA DI ATRIBUT href]
+                         Contoh: href="https://github.com/galang123/aplikasi-kasir"
+                         ========================================================= -->
+                    <a href="https://garnetagalang-source.github.io/aplikasi-kasir-sederhana-v2/" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="github-project-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        <span class="lang-text" data-id="Lihat Proyek Kasir di GitHub ↗" data-en="View Cashier Project on GitHub ↗">Lihat Proyek Kasir di GitHub ↗</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =====================================================================
+         4. BAGIAN SKILLS (JENDELA KEAHLIAN)
+         ===================================================================== -->
+    <section id="skills" class="pop-anim">
+        <div class="section-header">
+            <span class="section-tag">CAPABILITIES</span>
+            <h2 class="lang-text" data-id="Keahlian Saya" data-en="My Skills">Keahlian Saya</h2>
+        </div>
+
+        <div class="skills-window">
+            <div class="window-topbar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="window-title">galang@skills:~</span>
+            </div>
+            
+            <!-- =================================================================
+                 [TAMBAH ATAU UBAH DAFTAR KEAHLIAN ANDA DI BAWAH INI]
+                 ================================================================= -->
+            <div class="skills-grid">
+                <div class="skill-pill">🌐 Cisco Packet Tracer & Routing</div>
+                <div class="skill-pill">🔀 VLAN & Switching Configuration</div>
+                <div class="skill-pill">📡 Wireless / Setting WiFi</div>
+                <div class="skill-pill">💻 HTML5, CSS3 & JavaScript</div>
+                <div class="skill-pill">🛒 Web App Development (Kasir)</div>
+                <div class="skill-pill">🛠️ Hardware Assembly & Repair</div>
+                <div class="skill-pill">💿 Software Installation & OS</div>
+                <div class="skill-pill">🤝 Leadership & Team Management</div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =====================================================================
+         5. BAGIAN CERTIFICATES (SERTIFIKAT — KLIK FOTO UNTUK TAMPILAN PENUH)
+         ===================================================================== -->
+    <section id="certificates" class="pop-anim">
+        <div class="section-header">
+            <span class="section-tag">ACHIEVEMENTS</span>
+            <h2 class="lang-text" data-id="Sertifikat & Penghargaan" data-en="Certificates & Awards">Sertifikat & Penghargaan</h2>
+            <p class="section-desc lang-text" data-id="Klik pada gambar sertifikat untuk melihat dokumen secara penuh dan jelas." data-en="Click on any certificate image to inspect the full document clearly.">
+                Klik pada gambar sertifikat untuk melihat dokumen secara penuh dan jelas.
+            </p>
+        </div>
+
+        <div class="cards-grid cert-layout">
+            
+            <!-- SERTIFIKAT 1: SERTIFIKAT KOMPETENSI KEAHLIAN -->
+            <article class="project-card">
+                <div class="img-container">
+                    <!-- =========================================================
+                         [GANTI FOTO SCAN SERTIFIKAT KOMPETENSI KEAHLIAN DI SINI]
+                         ========================================================= -->
+                    <img src="utk.jpg" 
+                         alt="Sertifikat Kompetensi Keahlian" 
+                         data-caption="Sertifikat Kompetensi Keahlian"
+                         onclick="openModal(this)">
+                    <span class="zoom-badge">🔍 Full</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Kompetensi Teknis</span>
+                    <h3 class="lang-text" data-id="Sertifikat Kompetensi Keahlian" data-en="Certificate of Technical Competency">Sertifikat Kompetensi Keahlian</h3>
+                    <!-- [SILAKAN EDIT PENJELASAN SERTIFIKAT KOMPETENSI ANDA DI SINI] -->
+                    <p class="lang-text" 
+                       data-id="Sertifikasi resmi yang membuktikan kelulusan uji kompetensi keahlian dalam merancang, mengonfigurasi, dan mengelola infrastruktur jaringan komputer." 
+                       data-en="Official certification verifying competency in designing, configuring, and managing computer network infrastructure.">
+                        Sertifikasi resmi yang membuktikan kelulusan uji kompetensi keahlian dalam merancang, mengonfigurasi, dan mengelola infrastruktur jaringan komputer.
+                    </p>
+                </div>
+            </article>
+
+            <!-- SERTIFIKAT 2: SERTIFIKAT KETUA ORGANISASI -->
+            <article class="project-card">
+                <div class="img-container">
+                    <!-- =========================================================
+                         [GANTI FOTO SCAN SERTIFIKAT KETUA ORGANISASI DI SINI]
+                         ========================================================= -->
+                    <img src="ketua.jpg" 
+                         alt="Sertifikat Ketua Sahabat Pustaka" 
+                         data-caption="Sertifikat Ketua Sahabat Pustaka"
+                         onclick="openModal(this)">
+                    <span class="zoom-badge">🔍 Full</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-category">Kepemimpinan</span>
+                    <h3 class="lang-text" data-id="Sertifikat Ketua Sahabat Pustaka" data-en="Organization Chairperson Certificate">Sertifikat Ketua Sahabat Pustaka</h3>
+                    <!-- [SILAKAN EDIT PENJELASAN SERTIFIKAT KETUA ORGANISASI ANDA DI SINI] -->
+                    <p class="lang-text" 
+                       data-id="Penghargaan atas dedikasi, tanggung jawab, dan kepemimpinan selama menjabat sebagai Ketua Sahabat Pustaka di Perpustakaan MTSN 2 Kota Blitar dalam mengoordinasikan program kerja dan tim." 
+                       data-en="Awarded for outstanding dedication, responsibility, and leadership during my tenure as President of Sahabat Pustaka at the MTSN 2 Kota Blitar Library, overseeing team coordination and work programs.">
+                        Penghargaan atas dedikasi, tanggung jawab, dan kepemimpinan selama menjabat sebagai Ketua Sahabat Pustaka di Perpustakaan MTSN 2 Kota Blitar dalam mengoordinasikan program kerja dan tim.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =====================================================================
+         6. BAGIAN CONTACT (EMAIL OTOMATIS TERSALIN + GITHUB & INSTAGRAM)
+         ===================================================================== -->
+    <section id="contact" class="pop-anim">
+        <div class="section-header">
+            <span class="section-tag">CONNECT</span>
+            <h2 class="lang-text" data-id="Kontak Saya" data-en="Contact Me">Kontak Saya</h2>
+            <p class="section-desc lang-text" data-id="Klik tombol email di bawah untuk menyalin alamat email secara otomatis." data-en="Click the email button below to automatically copy my email address.">
+                Klik tombol email di bawah untuk menyalin alamat email secara otomatis.
+            </p>
+        </div>
+
+        <div class="contact-card">
+            <!-- =================================================================
+                 [GANTI ALAMAT EMAIL ANDA DI DUA TEMPAT DI BAWAH INI]
+                 1. Di dalam copyEmail('...')
+                 2. Di dalam <span id="email-text">...</span>
+                 ================================================================= -->
+            <button class="email-copy-btn" onclick="copyEmail('garnetagalang7@gmail.com')">
+                <span class="email-icon">✉️</span>
+                <span id="email-text">garnetagalang7@gmail.com</span>
+                <span class="copy-tag lang-text" data-id="Salin" data-en="Copy">Salin</span>
+            </button>
+
+            <div id="copy-toast" class="copy-toast">
+                ✅ <span class="lang-text" data-id="Alamat email berhasil disalin ke clipboard!" data-en="Email address copied to clipboard!">Alamat email berhasil disalin ke clipboard!</span>
+            </div>
+
+            <div class="social-row">
+                <!-- =============================================================
+                     [GANTI LINK AKUN GITHUB & INSTAGRAM ANDA DI BAWAH INI]
+                     ============================================================= -->
+                <a href="https://github.com/garnetagalang-source" target="_blank" rel="noopener noreferrer" class="social-btn github">
+                    GitHub ↗
+                </a>
+                <a href="https://www.instagram.com/glg_grnt?dlrf=MmwyYjU4MGM0OXhz&utm_source=qr" target="_blank" rel="noopener noreferrer" class="social-btn instagram">
+                    Instagram ↗
+                </a>
+                <a href="https://linktr.ee/GalangGarneta" target="_blank" rel="noopener noreferrer" class="social-btn linktree">
+                     Linktree ↗
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 Galang. <span class="lang-text" data-id="Dibuat dengan semangat teknologi." data-en="Built with passion for technology.">Dibuat dengan semangat teknologi.</span></p>
+    </footer>
+
+    <!-- =====================================================================
+         MODAL POP-UP UNTUK MELIHAT FOTO / SERTIFIKAT UKURAN PENUH (FULL SCREEN)
+         ===================================================================== -->
+    <div id="image-modal" class="modal" onclick="closeModal(event)">
+        <button class="close-modal" onclick="closeModal(event)" aria-label="Tutup">&times;</button>
+        <div class="modal-box">
+            <img id="modal-img" src="" alt="Tampilan Penuh">
+            <p id="modal-caption"></p>
+        </div>
+    </div>
+
+    <!-- Menghubungkan ke file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
