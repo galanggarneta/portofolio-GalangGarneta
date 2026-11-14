@@ -8,7 +8,7 @@ function createSkyAnimations() {
     // Simbol bintang, kilau, dan bulan sabit yang ceria
     const symbols = ['✦', '★', '✧', '🌙', '✨', '⋆'];
     const colors = ['#1D4ED8', '#38BDF8', '#880E27', '#F59E0B', '#A4133C'];
-    const totalItems = 80; // Jumlah bintang & bulan di latar belakang
+    const totalItems = 30; // Jumlah bintang & bulan di latar belakang
 
     for (let i = 0; i < totalItems; i++) {
         const item = document.createElement('span');
