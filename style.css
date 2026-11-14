@@ -876,3 +876,22 @@ section {
         display: none; /* Menu ringkas di layar kecil */
     }
 }
+
+/* =========================================================================
+   PENYESUAIAN TOMBOL EMAIL KHUSUS TAMPILAN MOBILE (HP)
+   ========================================================================= */
+@media (max-width: 600px) {
+    /* Menyembunyikan label "Salin" / "Copy" di layar HP */
+    .copy-tag {
+        display: none;
+    }
+
+    /* Merapikan ukuran tombol email agar pas di dalam kotak putih */
+    .email-copy-btn {
+        max-width: 100%;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        gap: 8px;
+        justify-content: center;
+    }
+}
